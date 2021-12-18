@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="./index.css">
+
+  <!-- Begin bootstrap dependencies -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+  <!-- End bootstrap dependencies -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Modal Demo</title>
+</head>
+<body>
+  <div class="jumbotron" style="margin: 0">
+    <h1>Modal Demo</h1>
+    <p class="lead">
+      This page demonstrates how to render <a target="_blank" href="https://en.wikipedia.org/wiki/Modal_window">Modals</a> using Twitter Bootstrap 4.
+    </p>
+    <ul>
+      <li>
+        <a targte="_blank" href="https://careerfoundry.com/en/blog/web-development/what-is-bootstrap-a-beginners-guide/">What is Bootstrap?</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://getbootstrap.com/docs/4.6/getting-started/introduction/">Getting started with Bootstrap</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://getbootstrap.com/docs/4.0/components/modal/">Bootstrap Modal documentation</a>
+      </li>
+    </ul>
+    <hr>
+    <h3>Examples</h3>
+    <div class="card">
+      <div class="card-header">
+        Try clicking these buttons to toggle the visibility of each modal.
+      </div>
+      <div class="card-body">
+      
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-1">
+          Modal 1
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-2">
+          Modal 2
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-3">
+          Modal 3
+        </button>
+      </div>
+    </div>
+    <hr>
+    <h3>How do I set this up for myself?</h3>
+    <ol>
+      <li>
+        <p>
+          Add links to the Bootstrap and jQuery CDNs to the <code>&lt;head&gt;</code> of your HTML page. You can get these CDN URLs <a target="_blank" href="https://getbootstrap.com/docs/4.6/getting-started/introduction/">here</a>, or you can steal the <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags directly from this HTML page!
+        </p>
+        <p>
+          After doing this, the <code>&lt;head&gt;</code> of your HTML page should look something like this:
+        </p>
+        <pre class="code-block"><code>&lt;head&gt;
+  ...
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css&quot; integrity=&quot;...&quot; crossorigin=&quot;anonymous&quot;&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js&quot; integrity=&quot;...&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;...&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+  ...
+&lt;/head&gt;</code></pre>
+      </li>
+      <li>
+        <p>
+          Now that you have Bootstrap included in your app, update your HTML page to include <code>&lt;button&gt;</code> elements for each of the modals that you want to support showing. Copy this HTML to use for your buttons:
+        </p>
+        <pre class="code-block"><code>&lt;button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CHANGE_ME">
+  Click me!
+&lt;/button&gt;</code></pre>
+      </li>
+      <li>
+        <p>
+          After adding the buttons to your HTML page, change the <code>data-target</code> value for each button to hold a unique value. This value will be used later for triggering a modal specific to each button.
+        </p>
+      </li>
+      <li>
+        <p>
+          Next, we need to add to our HTML page a series of <code>&lt;div&gt;</code>s that will hold the markup for each of the modals. Copy this HTML to use for each modal:
+        </p>
+        <pre class="code-block"><code>&lt;div class=&quot;modal fade&quot; id=&quot;CHANGE_ME&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+      &lt;div class=&quot;modal-header&quot;&gt;
+        &lt;h5 class=&quot;modal-title&quot;&gt;
+          This is the title of the modal
+        &lt;/h5&gt;
+        &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;
+          &lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;modal-body&quot;&gt;
+        This is the body of the modal
+      &lt;/div&gt;
+      &lt;div class=&quot;modal-footer&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; data-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </li>
+    </ul>
+    <li>
+      <p>
+        After adding the modal <code>&lt;div&gt;</code>s to your HTML page, we now need to let the HTML know which button corresponds to which modal.
+        To do this, update the <code>id</code> attribute of each <code>&lt;div&gt;</code> to have the same value as a <code>data-target</code> that you assigned to one of your buttons in step 3.
+      </p>
+      <p>
+        For example, in this webpage, the first button example has a <code>data-target</code> value of "#modal-1", so the modal <code>&lt;div&gt;</code> corresponding to that button has an <code>id</code> value of "modal-1".
+      </p>
+    </li>
+    <li>
+      <p>
+        And that's it! Try it out for yourself by clicking any of the buttons that you added to your HTML, and you'll see a modal window appear. The modal can be closed by clicking either of the buttons inside of it, clicking outside the modal, or via the Escape key.
+      </p>
+    </li>
+  </div>
+    
+  <div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            This is the title of modal 1
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          This is the body of modal 1
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal-2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            This is the title of modal 2
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          This is the body of modal 2
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal-3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            This is the title of modal 3
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          This is the body of modal 3
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
